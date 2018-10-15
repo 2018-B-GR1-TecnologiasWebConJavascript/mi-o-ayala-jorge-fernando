@@ -34,3 +34,15 @@ console.log(indiceSiete);
 
 // [0,10] Cerrado Esta incluido el 10
 // [0,10[ Abierto Esta excluido el 10
+var arregloUnoDos=[1,2];
+var arregloSeis=[6];
+//rompe los parentesis destructuracion de arreglos
+console.log(...arregloUnoDos);
+console.log(1,2);
+var arregloTotal=[...arregloUnoDos,...arregloUno,
+    ...arregloSeis,...arregloDos];
+console.log(arregloTotal);
+var arregloSiguientesNumeros=[11,12,13,14,15,16,17,18,19,20];
+arregloTotal.splice(arregloTotal.length,0,...arregloSiguientesNumeros);
+console.log(arregloTotal);
+
