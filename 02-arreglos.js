@@ -46,3 +46,22 @@ var arregloSiguientesNumeros=[11,12,13,14,15,16,17,18,19,20];
 arregloTotal.splice(arregloTotal.length,0,...arregloSiguientesNumeros);
 console.log(arregloTotal);
 
+
+var vicente={
+    nombre:"Vicente",apellido:"Eguez"
+};
+var eguez={
+        sueldo:1.10
+};
+var adrian={
+    edad:20,
+    casado:false,
+    hijos:null
+};
+var  VicenteAdrianEguez={
+    ...vicente,...adrian,...eguez
+};
+
+//en caso de tener dos avariables se escribe la mas actual
+// de las variables
+console.log(VicenteAdrianEguez);
