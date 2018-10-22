@@ -70,3 +70,8 @@ function nombreConPuntoFinal(nombre) {
 console.log(saludar("Adrian",nombreEnMayuscula));
 console.log(saludar("Adrian",nombreEnMinuscula));
 console.log(saludar("Adrian",nombreConPuntoFinal));
+
+function restar(){}
+console.log(restar());
+console.log(typeof restar)
+console.log(restar);
