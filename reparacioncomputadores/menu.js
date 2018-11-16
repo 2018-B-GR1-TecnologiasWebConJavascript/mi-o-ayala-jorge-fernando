@@ -4,12 +4,13 @@ var repcomputadores_1 = require("./repcomputadores");
 var registro_1 = require("./registro");
 var inquirer = require('inquirer');
 var fechaActual = new Date();
+var rxjs = require('rxjs');
 function start() {
     inquirer
         .prompt([
             {
                 type: 'list', name: 'Menu', message: 'Seleccione una opcion',
-                choices: ['1.-Agregar Computador', '2.-Listar Registro', '3.-Registro Computador', '4.-Salir']
+                choices: ['1.-Agregar Computador', '2.-Listar Computadores', '3.-Registro Computador','4.-Listar Registro','5.-Borrar', '6.-Salir']
             }
         ])
         .then(function (opcionMenu) {
@@ -44,7 +45,7 @@ function start() {
                         });
 
                     break;
-                case '2.-Listar Registro':
+                case '2.-Listar Computadores':
                     repcomputadores_1.listarComputador();
 
                     break;
@@ -71,7 +72,45 @@ function start() {
 
                         });
                     break;
-                case '4.-Salir':
+                case '4.-Listar Registro':
+                    registro_1.listarRegistros();
+                    break;
+                case '5.-Borrar':
+                    var leerArchivo$ = rxjs.from(lecturaArchivo("computador.json"));
+                    leerArchivo$.subscribe(function (respuesta) {
+                        arreglo = respuesta.split('\n');
+                        var id = arreglo.filter(function (value) {
+                            if (value != '') {
+                                return (JSON.parse(value)["id"] === id);
+                            }
+                        });
+                        inquirer
+                            .prompt(cancionEliminada)
+                            .then(function (opcion) {
+                                var leerArchivo2$ = rxjs.from(lecturaArchivo("computador.json"));
+                                leerArchivo2$.subscribe(function (respuesta2) {
+                                    var arreglo2 = respuesta2.split('\n');
+                                    arreglo2 = arreglo2.filter(function (value) {
+                                        if (value === '') {
+                                        }
+                                        else {
+                                            if ( JSON.parse(value)["id"] === id) {
+                                            }
+                                            else {
+                                                return value;
+                                            }
+                                        }
+                                    });
+                                    var val = "";
+                                    arreglo2.forEach(function (valor) {
+                                        val += valor + "\n";
+                                    });
+                                    rxjs.from(escribirarchivo("computador.json", val));
+                                });
+                            });
+                    });
+                    break;
+                case '6.-Salir':
                     break;
             }
         });

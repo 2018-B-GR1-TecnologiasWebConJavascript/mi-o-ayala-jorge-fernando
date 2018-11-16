@@ -72,3 +72,11 @@ exports.crearRegistro1 = function (arreglosRegistro,nuevoRegistro,lista) {
             });
     });
 };
+exports.listarRegistros = function () {
+    return new Promise(function (resolve, reject) {
+        exports.lecturaArchivoRegistro
+            .then(function (contenidoArchivo) {
+                console.log('\n*****Registros*****\n', contenidoArchivo);
+            });
+    });
+};
