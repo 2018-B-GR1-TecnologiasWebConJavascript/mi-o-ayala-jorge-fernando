@@ -22,7 +22,7 @@ function sumarDosNumeros(numeroUno,numeroDos) {
 
 }
 console.log(sumarDosNumeros(1,2));//suma de nuermos
-console.log(sumarDosNumeros(1,2,3,4,5,6,7));
+console.log(sum arDosNumeros(1,2,3,4,5,6,7));
 console.log(sumarDosNumeros(true,0,undefined,null,"asd",6,7));
 function sumarNnumeros(...numero) {
     console.log(numero);
