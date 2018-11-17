@@ -5,7 +5,7 @@ var registro_1 = require("./registro");
 var inquirer = require('inquirer');
 var fechaActual = new Date();
 var rxjs = require('rxjs');
-function start() {
+function main() {
     inquirer
         .prompt([
             {
@@ -75,10 +75,10 @@ function start() {
                 case '4.-Listar Registro':
                     registro_1.listarRegistros();
                     break;
-                case '5.-Borrar':
+             case '5.-Borrar':
                     var leerArchivo$ = rxjs.from(lecturaArchivo("computador.json"));
                     leerArchivo$.subscribe(function (respuesta) {
-                        arreglo = respuesta.split('\n');
+                       var arreglo = respuesta.split('\n');
                         var id = arreglo.filter(function (value) {
                             if (value != '') {
                                 return (JSON.parse(value)["id"] === id);
@@ -115,4 +115,4 @@ function start() {
             }
         });
 }
-start();
+main();

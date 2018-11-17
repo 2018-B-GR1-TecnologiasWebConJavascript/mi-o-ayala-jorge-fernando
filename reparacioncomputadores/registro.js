@@ -64,7 +64,7 @@ exports.crearRegistro1 = function (arreglosRegistro,nuevoRegistro,lista) {
     arreglosRegistro.push(nuevoRegistro);
     return new Promise(function (resolve, reject) {
         //const archivo:string = 'registro.json';
-        //var archivo= 'registro.json';
+        var archivo = 'registro.json';
         var datosRegistro = '\n' + JSON.stringify(nuevoRegistro);
         exports.lecturaArchivoRegistro
             .then(function (contenidoArchivo) {
